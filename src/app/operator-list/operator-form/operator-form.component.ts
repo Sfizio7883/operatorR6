@@ -34,6 +34,7 @@ export class OperatorFormComponent implements OnInit {
     const role = this.operatorForm.get('role').value;
     const newOperator = new Operator(name,role);
     if(this.fileUrl && this.fileUrl !==''){
+      console.log("jesaispas");
       newOperator.photo = this.fileUrl;
     }
     this.operatorsService.createNewOperators(newOperator);
@@ -48,7 +49,7 @@ export class OperatorFormComponent implements OnInit {
         this.fileIsUploading = false;
         this.fileUploaded = true;
       }
-    )
+    );
   }
 
   detectFiles(event){

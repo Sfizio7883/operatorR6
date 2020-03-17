@@ -66,7 +66,9 @@ export class OperatorsService {
     return new Promise(
       (resolve,reject) => {
         const almostUniqueFileName = Date.now().toString();
-        const upload = firebase.storage().ref().child('images/'+almostUniqueFileName+file.name).put(file);
+        const upload = firebase.storage().ref()
+          .child('images/'+almostUniqueFileName+file.name)
+          .put(file);
         upload.on(firebase.storage.TaskEvent.STATE_CHANGED,
           () => {
             console.log('Chargement...');
@@ -76,6 +78,7 @@ export class OperatorsService {
           },
           () => {
             resolve(upload.snapshot.downloadURL);
+            console.log('ok');
           }
         );
       }

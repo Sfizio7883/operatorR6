@@ -8,9 +8,19 @@
             </div>
             <div class="form-group">
                 <label for="role">Rôle</label>
-                <input type="text" class="form-control" id="role" formControlName="role">
+                <select id=role class="form-control" name="role" formControlName="role"> 
+                    <option value="Attaquant">Attaquant</option>
+                    <option value="Défenseur">Défenseur</option>
+                </select>
             </div>
-            <button class="btn btn-success" [disabled]="operatorForm.invalid" type="submit">Enregistrer</button>
+            <div class="form-group">
+                <h4>Ajouter une photo</h4>
+                <input type="file" (change)="detectFiles($event)" class="form-control" accept="image/*">
+                <p class="text-success" *ngIf="fileUploaded">Fichier chargé !</p>
+            </div>
+            <button class="btn btn-success" 
+            [disabled]="operatorForm.invalid || fileIsUploading"
+            type="submit">Enregistrer</button>
         </form>
     </div>
 </div>

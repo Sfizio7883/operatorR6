@@ -1,5 +1,6 @@
 <div class="row">
     <div class="col-xs-12">
+        <img style="max-width:400px" *ngIf="operator.photo" [src]="operator.photo">
         <h1>{{ operator.name }}</h1>
         <h3>{{ operator.role }}</h3>
         <button class="btn btn-default" (click)="onBack()">Retour</button>
